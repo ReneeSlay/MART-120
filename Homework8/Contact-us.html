@@ -1,0 +1,174 @@
+<html>
+    
+        <title>All About Me</title>
+          <head>
+             <h1>Contact us</h1>
+             <head>
+  <meta charset="UTF-8">
+  <title>Required First Name Textbox</title>
+  <style>
+    /* Default textbox style */
+    input {
+      border: 2px solid #ccc;
+      padding: 8px;
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.3s, background-color 0.3s;
+    }
+
+    /* When the field is invalid (empty + required) */
+    input:invalid {
+      border-color: red;
+      background-color: #ffe6e6;
+    }
+
+    /* Optional: when valid, turn it green */
+    input:valid {
+      border-color: green;
+      background-color: #e6ffe6;
+    }
+
+    /* Label styling */
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <label for="firstName">First Name:</label>
+    <input 
+      type="text" 
+      id="firstName" 
+      name="firstName" 
+      required 
+      placeholder="Enter your first name">
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+
+  <head>
+              <style>
+    input {
+      border: 2px solid #ccc;
+      padding: 8px;
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.3s, background-color 0.3s;
+    }
+    input:invalid {
+      border-color: red;
+      background-color: #ffe6e6;
+    }
+
+  
+    input:valid {
+      border-color: green;
+      background-color: #e6ffe6;
+    }
+
+  
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <label for="lastName">Last Name:</label>
+    <input 
+      type="text" 
+      id="lastName" 
+      name="lastName" 
+      required 
+      placeholder="Enter your last name">
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+        <head>
+         <style>
+
+    input {
+      border: 2px solid #ccc;
+      padding: 5px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .valid {
+      border-color: rgb(0, 255, 0);
+    }
+
+    .invalid {
+      border-color: rgb(216, 0, 0);
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <label for="email">Email address:</label>
+    <input type="email" id="email" name="email" required>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    const emailInput = document.querySelector('input[type="email"][required]');
+
+    emailInput.addEventListener('blur', () => {
+      if  (emailInput.checkValidity()) {
+
+        emailInput.classList.add('valid');
+        emailInput.classList.remove('invalid');
+      } else {
+
+        emailInput.classList.add('invalid');
+        emailInput.classList.remove('valid');
+      }
+    });
+  </script>
+</body>
+<a href="page2.html">Go to page 2</a>
+         <a href="homepage.html">Home page</a>
+ <style>
+    label {
+      font-weight: bold;
+      margin-left: 5px;
+    }
+    .error {
+      color: red;
+      display: none;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <form id="myForm">
+    <input type="checkbox" id="terms" name="terms" required />
+    <label for="terms">I agree to the terms of agreement.</label>
+
+    <br /><br />
+    <button type="submit">Submit</button>
+    <p class="error" id="errorMsg">Agree to the terms before submitting.</p>
+  </form>
+  <script>
+    const form = document.getElementById('myForm');
+    const termsCheckbox = document.getElementById('terms');
+    const errorMsg = document.getElementById('errorMsg');
+
+    form.addEventListener('submit', function (e) {
+      if (!termsCheckbox.checked) {
+        e.preventDefault(); // Stop form submission
+        errorMsg.style.display = 'block';
+      } else {
+        errorMsg.style.display = 'none';
+      }
+    });
+  </script>
+</body>
