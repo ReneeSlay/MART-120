@@ -1,27 +1,20 @@
 let player;
 let obstacles = [];
 let exitZone;
-
 function setup() {
   createCanvas(800, 600);
-
-  // Create player
   player = {
     x: 50,
     y: height / 2,
     size: 30,
     speed: 4
-  };
-
-  // Create exit
+  }
   exitZone = {
     x: width - 80,
     y: height / 2 - 40,
     w: 60,
     h: 80
   };
-
-  // Create 5+ random obstacles using an array
   for (let i = 0; i < 5; i++) {
     obstacles.push(createRandomObstacle());
   }
@@ -29,36 +22,27 @@ function setup() {
 
 function draw() {
   background(30);
-
-  // Draw exit
   fill(0, 255, 0);
   rect(exitZone.x, exitZone.y, exitZone.w, exitZone.h);
 
-  // Move & draw obstacles
   for (let obs of obstacles) {
     if (obs.moving) {
       obs.x += obs.vx;
       obs.y += obs.vy;
     }
-
-    // Wrap around screen
     if (obs.x > width) obs.x = 0;
     if (obs.x < 0) obs.x = width;
     if (obs.y > height) obs.y = 0;
     if (obs.y < 0) obs.y = height;
-
     fill(obs.color);
     rect(obs.x, obs.y, obs.w, obs.h);
   }
-
-  // Player movement
   movePlayer();
 
-  // Draw player
   fill(0, 150, 255);
   ellipse(player.x, player.y, player.size);
 
-  // Check win
+  
   if (
     player.x > exitZone.x &&
     player.x < exitZone.x + exitZone.w &&
@@ -67,20 +51,19 @@ function draw() {
   ) {
     fill(255);
     textSize(48);
-    text("YOU WIN!", width / 2 - 120, height / 2);
+    text("you win", width / 2 - 120, height / 2);
     noLoop();
   }
 }
-
 function movePlayer() {
-  if (keyIsDown(87)) player.y -= player.speed; // W
-  if (keyIsDown(83)) player.y += player.speed; // S
-  if (keyIsDown(65)) player.x -= player.speed; // A
-  if (keyIsDown(68)) player.x += player.speed; // D
+  if (keyIsDown(87)) player.y -= player.speed;  
+  if (keyIsDown(83)) player.y += player.speed;  
+  if (keyIsDown(65)) player.x -= player.speed; 
+  if (keyIsDown(68)) player.x += player.speed; 
 }
 
 function mousePressed() {
-  // Add non-moving obstacle where clicked
+
   obstacles.push({
     x: mouseX,
     y: mouseY,
